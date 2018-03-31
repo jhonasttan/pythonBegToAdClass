@@ -1,3 +1,10 @@
+'''
+    Program: Calculator app
+    Author: Jhonasttan Regalado
+    Copyright: 2018
+'''
+
+
 import re
 
 print("Our Magical Calculator")
