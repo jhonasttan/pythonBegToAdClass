@@ -2,6 +2,22 @@ from classes.game import Person, bcolors
 from classes.magic import Spell
 from classes.inventory import Item
 
+print("\n\n")
+#use ascii code 219 to show bar percentage change - http://www.theasciicode.com.ar/extended-ascii-code/block-graphic-character-ascii-code-219.html
+print("NAME                 HP                                  MP")
+print("                     =========================           ==========")
+print(bcolors.BOLD + "Values:     " +
+      "210/460 |" + bcolors.OKGREEN + "█████████                " + bcolors.ENDC +  bcolors.BOLD
+      +  "|   " +
+      "50/65 |" + bcolors.OKBLUE + "█████" + bcolors.ENDC + "     |")
+
+print("                     =========================           ==========")
+print("Values:     460/460 |                         |   65/65 |          |")
+
+print("                     =========================           ==========")
+print("Values:     460/460 |                         |   65/65 |          |")
+
+print("\n\n")
 
 #Create Black Magic
 fire = Spell("Fire", 10, 100, "black")
