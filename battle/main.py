@@ -57,7 +57,7 @@ while running:
         print("You attacked for", dmg, "points of damage")
     elif index == 1:
         player.choose_magic()
-        magic_choice = int(input("Choos magic: ")) - 1
+        magic_choice = int(input("Choose magic: ")) - 1
 
         if magic_choice == -1:
             continue
@@ -89,6 +89,12 @@ while running:
             continue
 
         item = player.items[item_choice]["item"]
+
+        if player.items[item_choice]["quantity"] == 0:
+            print(bcolors.FAIL + "\n" + "None left..."
+                  + bcolors.ENDC)
+            continue
+
         player.items[item_choice]["quantity"] -= 1
 
         if item.type == "potion":
@@ -117,7 +123,7 @@ while running:
     print("Enemy HP:", bcolors.FAIL + str(enemy.get_hp()) + "/" + str(enemy.get_max_hp()) + bcolors.ENDC + "\n")
 
     print("Your HP:", bcolors.OKGREEN + str(player.get_hp()) + "/" + str(player.get_max_hp()) + bcolors.ENDC)
-    print("Your MP:", bcolors.OKBLUE + str(player.get_mp()) + "/" + str(player.get_max_hp()) + bcolors.ENDC + "\n")
+    print("Your MP:", bcolors.OKBLUE + str(player.get_mp()) + "/" + str(player.get_max_mp()) + bcolors.ENDC + "\n")
 
 
     if enemy.get_hp() == 0:
