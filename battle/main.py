@@ -37,9 +37,9 @@ player1 = Person("Jhona:", 3260, 132, 300, 34, player_spells, player_items)
 player2 = Person("Gabi: ", 4160, 188, 311, 34, player_spells, player_items)
 player3 = Person("Nana: ", 3089, 288, 60, 34, player_spells, player_items)
 
-enemy1 =  Person("Imp:  ", 1250, 130, 560, 325, [], [])
-enemy2 =  Person("Magus:", 11200, 701, 525, 25, [], [])
-enemy3 =  Person("Imp:  ", 1250, 130, 560, 325, [], [])
+enemy1 =  Person("KingPin:", 1250, 130, 560, 325, [], [])
+enemy2 =  Person("Trump:  ", 11200, 701, 525, 25, [], [])
+enemy3 =  Person("TheHand:", 1250, 130, 560, 325, [], [])
 
 players = [player1, player2, player3]
 enemies = [enemy1, enemy2, enemy3]
