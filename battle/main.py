@@ -3,12 +3,18 @@ from classes.magic import Spell
 from classes.inventory import Item
 import random
 
-#Create Black Magic
+#Create Black Magic variables: name, cost, dmg, type
 fire = Spell("Fire", 25, 600, "black")
 thunder = Spell("Thunder", 25, 600, "black")
 blizzard = Spell("Blizzard", 25, 600, "black")
 meteor = Spell("Meteor", 40, 1200, "black")
 quake = Spell("Quake", 14, 140, "black")
+diarrhea = Spell("diarrhea", 14, 140, "black")
+farts = Spell("farts", 14, 140, "black")
+noTweeets = Spell("noTweeets", 14, 731, "black")
+bearClaws = Spell("bearClaws", 14, 396, "black")
+turdSling = Spell("turdSling", 14, 600, "black")
+
 
 #Create White Magic
 cure = Spell("Cure", 25, 620, "white")
@@ -24,7 +30,7 @@ hielixer = Item("MegaElixer", "elixer", "Fully restores party's HP/MP", 9999)
 grenade = Item("Grenade", "attack", "Deals 500 damage", 500)
 
 
-player_spells = [fire, thunder, blizzard, meteor, cure, cura]
+player_spells = [fire, thunder, blizzard, meteor, cure, cura, diarrhea, farts, noTweeets, bearClaws, turdSling]
 player_items = [{"item": potion, "quantity": 15},
                 {"item": hipotion, "quantity": 5},
                 {"item": superpotion, "quantity": 5},
@@ -35,7 +41,7 @@ player_items = [{"item": potion, "quantity": 15},
 #Instantiate People
 player1 = Person("Jhona:", 3260, 132, 300, 34, player_spells, player_items)
 player2 = Person("Gabi: ", 4160, 188, 311, 34, player_spells, player_items)
-player3 = Person("Nana: ", 3089, 288, 60, 34, player_spells, player_items)
+player3 = Person("Dad: ", 3089, 288, 60, 34, player_spells, player_items)
 
 enemy1 =  Person("KingPin:", 1250, 130, 560, 325, [], [])
 enemy2 =  Person("Trump:  ", 11200, 701, 525, 25, [], [])
@@ -44,14 +50,14 @@ enemy3 =  Person("TheHand:", 1250, 130, 560, 325, [], [])
 players = [player1, player2, player3]
 enemies = [enemy1, enemy2, enemy3]
 
-running = True
+pedaling = True
 i = 0
 
 print(bcolors.FAIL + bcolors.BOLD + "AN ENEMY ATTACKS!" + bcolors.ENDC)
 #print("The enemy attacks")
 
 
-while running:
+while pedaling:
     print("===================")
 
     print("\n\n")
@@ -161,7 +167,7 @@ while running:
 
     if enemies[0].get_hp() == 0:
         print(bcolors.OKGREEN + "You win!" + bcolors.ENDC)
-        running = False
+        pedaling = False
     elif player.get_hp() == 0:
         print(bcolors.FAIL + "Your enemy has defeated you!" + bcolors.ENDC)
-        running = False
+        pedaling = False
