@@ -64,7 +64,7 @@ class Person:
 
     def choose_magic(self):
         i = 1
-        print(bcolors.OKBLUE + bcolors.BOLD + "    MAGIC:" + bcolors.ENDC)
+        print("\n" + bcolors.OKBLUE + bcolors.BOLD + "    MAGIC:" + bcolors.ENDC)
         for spell in self.magic:
             print("        " + str(i) + "." , spell.name,
                   "(cost:", str(spell.cost) + ")")
@@ -73,10 +73,20 @@ class Person:
     def choose_item(self):
         i = 1
 
-        print(bcolors.OKGREEN + bcolors.BOLD + "    ITEMS:" + bcolors.ENDC)
+        print("\n" + bcolors.OKGREEN + bcolors.BOLD + "    ITEMS:" + bcolors.ENDC)
         for item in self.items:
             print("        " + str(i) + ".", item["item"].name + ":", item["item"].description, " (x" + str(item["quantity"]) + ")")
             i+=1
+
+    def choose_target(self, enemies):
+        i = 1
+        print("\n" + bcolors.FAIL + bcolors.BOLD + "   TARGET:" + bcolors.ENDC)
+        for enemy in enemies:
+            print("        " + str(i) + "." + enemy.name)
+            i += 1
+        choice = int(input("    Choose target:")) - 1
+        return choice
+
 
     def get_enemy_stats(self):
         hp_bar = ""
