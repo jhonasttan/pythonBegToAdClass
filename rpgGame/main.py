@@ -1,3 +1,10 @@
+
+'''
+    Program: RPG text based game
+    Author: Jhonasttan Regalado
+    Copyright: 2018
+'''
+
 from classes.game import Person, bcolors
 from classes.magic import Spell
 from classes.inventory import Item
@@ -168,7 +175,7 @@ while running:
                     print(bcolors.OKGREEN + bcolors.BOLD + enemies[enemy].name.replace(" ", "") + " has died." + bcolors.ENDC)
                     del enemies[enemy]
 
-    #Check if battle is over
+    #Check if rpgGame is over
     defeated_enemies = 0
     defeated_players = 0
 
