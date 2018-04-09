@@ -1,15 +1,21 @@
 import requests
+from io import BytesIO
+from PIL import Image
 
-params = {"q": "pizza"}
-r = requests.get("http://bing.com/search", params=params)
+image_address = "https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Epic-Star-Wars-Wallpapers-HD-For-Computer-PIC-WPB006347.png"
+r = requests.get(image_address)
+
 print("Status:", r.status_code)
 
 # list of http status codes - https://httpstatuses.com/
 
-print(r.url)
-print(r.text)
+image = Image.open(BytesIO(r.content))
 
-w_file = "./page.html"
+path = "./image1." + image.format
 
-f = open(w_file, "w+")
-f.write(r.text)
+print(image.size, image.format, image.mode)
+
+try:
+    image.save(path, image.format)
+except IOError:
+    print("cannot save image")
