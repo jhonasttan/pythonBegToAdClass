@@ -1,21 +1,9 @@
 import requests
-from io import BytesIO
-from PIL import Image
 
-image_address = "https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Epic-Star-Wars-Wallpapers-HD-For-Computer-PIC-WPB006347.png"
-r = requests.get(image_address)
+url_address = "http://www.w3schools.com/php/welcome.php"
+my_data = {"name": "Thundercat", "email": "lion-o@thundercats.hoe"}
 
-print("Status:", r.status_code)
+r = requests.post(url_address, data=my_data)
 
-# list of http status codes - https://httpstatuses.com/
-
-image = Image.open(BytesIO(r.content))
-
-path = "./image1." + image.format
-
-print(image.size, image.format, image.mode)
-
-try:
-    image.save(path, image.format)
-except IOError:
-    print("cannot save image")
+f = open("myfile.html", "w+")
+f.write(r.text)
