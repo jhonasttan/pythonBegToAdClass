@@ -6,4 +6,4 @@ payload = {"longurl": "http://example.com"}
 headers = {"Content-Type": "applications/json"}
 r = requests.post(url, json=payload)
 
-print(json.loads(r.text)["error"]["code"])
+print(r.headers)
