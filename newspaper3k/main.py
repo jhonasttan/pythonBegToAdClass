@@ -1,5 +1,3 @@
-#!/anaconda3/bin/python3
-
 '''
     Author: Jhonasttan Regalado
     Copyright: 20180414
@@ -10,13 +8,10 @@
             $ brew install libtiff libjpeg webp little-cms2
             $ pip3 install newspaper3k
             $ curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py | python3
+            # for anaconda users:
+                $ conda install -c conda-forge newspaper3k
 
 '''
-
-
-# Error when running script:
-#   Can run the script from PyCharm Python Console, but fails when running script via
-#       Pycharm 'run' command or terminal.
 from newspaper import Article
 
 url = "http://opensourceforu.com/2016/02/ionic-a-ui-framework-to-simplify-hybrid-mobile-app-development/"
