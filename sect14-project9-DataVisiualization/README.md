@@ -3,3 +3,4 @@ Data Visualization using pyplot
 - To proceed with Jupyter, first install via pip (if not already installed)
 - run command 'jupyter notebook'
 - If using PyCharm, you can view your Jupyter Notebook token via terminal using command 'jupyter notebook list'
+- Pandas cheatsheet >> https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf
