@@ -1,43 +1,41 @@
 import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
-from bs4 import BeautifulSoup
-from urllib.parse import urlparse
-import sys
+
+from newspaper import Article
 
 class Fetcher:
     def __init__(self, url):
-        self.driver = webdriver.PhantomJS()
-        self.driver.wait = WebDriverWait(self.driver, 5)
         self.url = url
-        print(self.url)
-        self.lookup()
+        self.article = Article(self.url)
 
     def lookup(self):
-        self.driver.get(self.url)
-        try:
-            ip = self.driver.wait.until(EC.presence_of_element_located(
-                (By.CLASS_NAME, "gsfi")
-            ))
-        except:
-            print("Failed bro")
+        # 1. Download the article
+        self.article.download()
 
-        soup = BeautifulSoup(self.driver.page_source, "html.parser")
-        answer = soup.find_all(class_="_sPg")
-        #answer = soup.find_all(class_="PNlCoe")
+        # 2. Parse the article
+        self.article.parse()
 
-        with open("test.html", "w+") as f:
-            f.write(str(soup))
-            f.close()
+        # 3. Fetch Author Names
+        print(self.article.authors)
 
-        if not answer:
-            answer = soup.find_all(class_="_m3b")
-        else:
-            answer = ["I don\'t know"]
+        # 4 Fetch Publication Date
+        print("Article Publication Date:")
+        print(self.article.publish_date)
+        # 5. The URL of the Major Image
+        print("Major Image in the article:")
+        print(self.article.top_image)
 
+        # 6. Natural Language Processing on Article to fetch keywords
+        self.article.nlp()
+        print("Keywords in the article")
+        print(self.article.keywords)
+
+        # 7. Generate article summary
+        print("Article Summary:")
+        print(self.article.summary)
+        answer = self.article.summary
+        answer = answer.replace("\n", " ").replace('\r', '')
+        print(type(answer))
         print(answer)
-        self.driver.quit()
-        return answer[0].get_text()
+        return answer
+        #return ' '.join(answer)
+        #return ' '.join(word[0] for word in answer)
