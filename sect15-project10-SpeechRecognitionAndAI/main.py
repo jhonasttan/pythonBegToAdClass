@@ -54,7 +54,8 @@ def initSpeech():
 
     print("Your command: ")
     print(command)
-    if command == "quit":
+    if command in ["quit", "exit", "bye", "goodbye"]:
+        global running
         running = False
 
     cmd.discover(command)
