@@ -27,4 +27,4 @@ class Commander:
 
     def respond(self, response):
         print(response)
-        subprocess.call('say '+ response, shell=True)
+        subprocess.call('say ' + response , shell=True)

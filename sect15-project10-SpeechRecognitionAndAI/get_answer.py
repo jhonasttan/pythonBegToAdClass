@@ -1,5 +1,4 @@
-import time
-
+import re
 from newspaper import Article
 
 class Fetcher:
@@ -36,6 +35,8 @@ class Fetcher:
         answer = answer.replace("\n", " ").replace('\r', '')
         print(type(answer))
         print(answer)
+        #remove URL in the voice response
+        answer = re.sub(r'http\S+', '', answer, flags=re.MULTILINE)
+        #replace quotes
+        answer = re.sub("'", "", answer, flags=re.MULTILINE)
         return answer
-        #return ' '.join(answer)
-        #return ' '.join(word[0] for word in answer)
