@@ -25,10 +25,19 @@ class Fetcher:
         except:
             print("Failed bro")
 
-        #soup = BeautifulSoup(self.driver.page_source, "html.parser")
-        #answer = soup.find_all(class_="_sPg")
-
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
-        answer = soup.find_all(class_="_sPg")[0]
+        answer = soup.find_all(class_="_sPg")
+        #answer = soup.find_all(class_="PNlCoe")
+
+        with open("test.html", "w+") as f:
+            f.write(str(soup))
+            f.close()
+
+        if not answer:
+            answer = soup.find_all(class_="_m3b")
+        else:
+            answer = ["I don\'t know"]
+
+        print(answer)
         self.driver.quit()
-        return answer.get_text()
+        return answer[0].get_text()
