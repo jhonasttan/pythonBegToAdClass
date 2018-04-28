@@ -10,17 +10,21 @@ class Commander:
         self.cancel = ["no", "negative", "negative soldier", "don't", "wait", "cancel"]
 
     def discover(self, text):
-        if "what" in text and "your name" in text:
+        if "what" in text and "name" in text:
             if "my" in text:
-                self.response("You haven't told me your name yet.")
+                self.respond("You haven't told me your name yet.")
             else:
-                self.response("My name is python commander. How are you?")
-        if "launch" or "open" in text:
-            app = text.split(" ", 1)[-1]
-            self.response("Opening " + app)
-            os.system("open -a " + app + ".app")
+                self.respond("My name is python commander. How are you?")
+        #if "launch" or "open" in text:
+        #    app = text.split(" ", 1)[-1]
+        #    self.response("Opening " + app)
+        #    os.system("open -a " + app + ".app")
+        else:
+            f = Fetcher("https://www.google.com/search?q=" + text)
+            answer = f.lookup()
+            self.respond(answer)
 
 
-    def response(self, response):
+    def respond(self, response):
         print(response)
         subprocess.call('say '+ response, shell=True)

@@ -13,6 +13,7 @@ class Fetcher:
         self.driver = webdriver.PhantomJS()
         self.driver.wait = WebDriverWait(self.driver, 5)
         self.url = url
+        print(self.url)
         self.lookup()
 
     def lookup(self):
@@ -24,5 +25,10 @@ class Fetcher:
         except:
             print("Failed bro")
 
+        #soup = BeautifulSoup(self.driver.page_source, "html.parser")
+        #answer = soup.find_all(class_="_sPg")
+
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
-        print(soup)
+        answer = soup.find_all(class_="_sPg")[0]
+        self.driver.quit()
+        return answer.get_text()
